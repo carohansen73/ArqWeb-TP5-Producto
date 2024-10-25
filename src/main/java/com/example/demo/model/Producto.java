@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Cliente {
+public class Producto {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
@@ -15,13 +15,17 @@ public class Cliente {
 	
 	@Column    
 	private String nombre;
-
-	public Cliente() {
+	
+	@Column    
+	private double precio;
+	
+	public Producto() {
 		super();
 	}
 	
-	public Cliente(String nombre) {
-		this.nombre = nombre;
+	public Producto(String producto, double precio) {
+		this.nombre = producto;
+		this.precio = precio;
 	}
 
 	public Integer getId() {
@@ -40,9 +44,18 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
 	@Override
 	public String toString() {
-
-		return "Cliente [id=" + id + ", nombre=" + nombre + ",";
+		return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio + "]";
 	}
+	
+	
 }

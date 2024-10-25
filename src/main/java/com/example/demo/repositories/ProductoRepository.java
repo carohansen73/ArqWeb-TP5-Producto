@@ -3,11 +3,10 @@ package com.example.demo.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.model.Cliente;
-
-import java.util.Optional;
+import com.example.demo.model.Producto;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
-
+public interface ProductoRepository extends JpaRepository<Producto, Integer> {
+	
+	
 }
