@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>ArqWeb-TP5-Producto</artifactId>
+	<artifactId>ArqWeb-TP5-Cliente</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ArqWeb-TP5-Producto</name>
-	<description>Demo project for Spring Boot</description>
+	<name>ArqWeb-TP5-Cliente</name>
+	<description>TP5 para arq web</description>
 	<url/>
 	<licenses>
 		<license/>
