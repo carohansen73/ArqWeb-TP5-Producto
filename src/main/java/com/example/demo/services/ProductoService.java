@@ -62,6 +62,9 @@ public class ProductoService {
 	        } 
 	 }
 	 
+	 public void delete(Integer id) {
+		 productoRepository.deleteById(id);
+	 }
 	 
 	
 
