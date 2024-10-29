@@ -54,7 +54,7 @@ public class ProductoController {
 		return ResponseEntity.ok(actualizado);
 	}
 
-	@DeleteMapping("{îd}")
+	@DeleteMapping("/{îd}")
 	public void deleteById(@PathVariable Integer id) {
 		service.delete(id);
 	}
