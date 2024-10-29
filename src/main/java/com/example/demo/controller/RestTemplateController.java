@@ -31,7 +31,7 @@ public class RestTemplateController {
 		return this.api_service.post(producto);
 	}
 	
-	@DeleteMapping("/{id")
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Integer id) {
 		this.api_service.delete(id);
 	}
@@ -40,4 +40,5 @@ public class RestTemplateController {
     public void put(@PathVariable Integer id, @RequestBody Producto producto) {
         this.api_service.update(id, producto);
     }
+    
 }

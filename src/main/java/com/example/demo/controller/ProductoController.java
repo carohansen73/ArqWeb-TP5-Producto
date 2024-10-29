@@ -18,6 +18,8 @@ import com.example.demo.dto.ProductoDTO;
 import com.example.demo.model.Producto;
 import com.example.demo.services.ProductoService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 
 
 @RestController
@@ -36,6 +38,7 @@ public class ProductoController {
 		return service.findAll();
 	}
 
+	@Operation(summary = "buscar un producto por id", description = "retorna un producto")
 	@GetMapping("/{id}")
 	public Optional<Producto> getByID(@PathVariable Integer id){
 		return service.getById(id);
@@ -57,6 +60,10 @@ public class ProductoController {
 	@DeleteMapping("/{îd}")
 	public void deleteById(@PathVariable Integer id) {
 		service.delete(id);
+	}
+	@GetMapping("/masVendido")
+	public ResponseEntity<Producto> masVendido(){
+		return service.masVendido();
 	}
 	
 }

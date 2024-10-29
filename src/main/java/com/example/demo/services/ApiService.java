@@ -14,6 +14,7 @@ import com.example.demo.model.Producto;
 @Service
 public class ApiService {
 	
+	
 	@Value("${base_url}")
 	private String base_url;
 	
@@ -55,4 +56,5 @@ public class ApiService {
 	            return ResponseEntity.status(ex.getStatusCode()).build();
 	        }
 	    }
+	    
 }

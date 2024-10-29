@@ -1,9 +1,11 @@
 package com.example.demo.services;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,10 +19,14 @@ import com.example.demo.repositories.ProductoRepository;
 @Service
 public class ProductoService {
 	
+	public static final String ventasApiUri = "http://localhost:8083/ventas";
+	@Autowired
+	private final RestTemplate restTemplate; 
 	@Autowired
 	private final ProductoRepository productoRepository;
-	public ProductoService(ProductoRepository productoRepository) {
+	public ProductoService(ProductoRepository productoRepository,RestTemplate restTemplate) {
 		this.productoRepository = productoRepository;
+		this.restTemplate = restTemplate;
 	}
 	
 	public Iterable<Producto> findAll(){
@@ -65,6 +71,15 @@ public class ProductoService {
 	 public void delete(Integer id) {
 		 productoRepository.deleteById(id);
 	 }
+
+	public ResponseEntity<Producto> masVendido() {
+		Integer idMasVendido = this.restTemplate.getForEntity(ventasApiUri + "/masVendido", Integer.class).getBody();
+		try {
+			return new ResponseEntity<Producto>(productoRepository.findById(idMasVendido).orElseThrow(),HttpStatus.OK);
+		}catch(NoSuchElementException e) {
+			return new ResponseEntity<Producto>(HttpStatus.NOT_FOUND);
+		}
+	}
 	 
 	
 
