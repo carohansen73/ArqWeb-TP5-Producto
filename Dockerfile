@@ -7,7 +7,7 @@ WORKDIR /app
 ENV variable_env un_valor_desde_dockerfile
 
 # Copiamos el archivo JAR de la aplicación Spring Boot al contenedor
-COPY target/ArqWeb-TP-Producto-0.0.1-SNAPSHOT.jar app.jar
+COPY target/ArqWeb-TP5-Producto-0.0.1-SNAPSHOT.jar app.jar
 
 # Exponemos el puerto en el que la aplicación Spring Boot escuchará las solicitudes
 EXPOSE 8080
