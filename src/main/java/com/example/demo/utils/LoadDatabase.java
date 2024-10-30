@@ -20,10 +20,10 @@ class LoadDatabase {
 	        return args -> {
 	        	  try {
 	        		  
-	        		  ProductoDTO prodDto1 = new ProductoDTO(1, "Fideos", 1000, 5);
-	        		  ProductoDTO prodDto2 = new ProductoDTO(2, "Cafe", 2500, 3);
-	        		  ProductoDTO prodDto3 = new ProductoDTO(3, "Galletitas", 1200, 5);
-	        		  ProductoDTO prodDto4 = new ProductoDTO(4, "Azucar", 900, 5);
+	        		  ProductoDTO prodDto1 = new ProductoDTO(1, "Fideos", 1000, 5, 1);
+	        		  ProductoDTO prodDto2 = new ProductoDTO(2, "Cafe", 2500, 3,2.1);
+	        		  ProductoDTO prodDto3 = new ProductoDTO(3, "Galletitas", 1200, 5,1.1);
+	        		  ProductoDTO prodDto4 = new ProductoDTO(4, "Azucar", 900, 5,0.85);
 	        		  
 	        		  Producto p1 = new Producto(prodDto1);
 	        		  Producto p2 = new Producto(prodDto2);

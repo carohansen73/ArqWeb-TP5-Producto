@@ -17,10 +17,12 @@ public class Producto {
 	private Integer id;
 	@Column    
 	private String nombre;
-	@Column    
+	@Column(scale=2)
 	private double precio;
 	@Column
 	private Integer stock;
+	@Column 
+	double precioEnDolar;
 	
 	public Producto() {
 		super();
@@ -37,9 +39,18 @@ public class Producto {
 		this.nombre = dto.getNombre();
 		this.precio = dto.getPrecio();
 		this.stock = dto.getStock();
+		this.precioEnDolar = dto.getPrecioEnDolar();
 	}
 	
 	
+	public double getPrecioEnDolar() {
+		return precioEnDolar;
+	}
+
+	public void setPrecioEnDolar(double precioEnDolar) {
+		this.precioEnDolar = precioEnDolar;
+	}
+
 	public Integer getId() {
 		return id;
 	}

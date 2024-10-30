@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.demo.dto.CotizacionDolarDTO;
 import com.example.demo.dto.ProductoDTO;
 import com.example.demo.model.Producto;
 import com.example.demo.repositories.ProductoRepository;
@@ -79,6 +80,12 @@ public class ProductoService {
 		}catch(NoSuchElementException e) {
 			return new ResponseEntity<Producto>(HttpStatus.NOT_FOUND);
 		}
+	}
+
+	public ResponseEntity<?> actualizarPrecios() {
+		CotizacionDolarDTO dolar = this.restTemplate.getForEntity("https://dolarapi.com/v1/dolares/blue", CotizacionDolarDTO.class).getBody();
+		this.productoRepository.actualizarPrecios(dolar.getPromedioCompraVenta());
+		return new ResponseEntity<Producto>(HttpStatus.OK);
 	}
 	 
 	

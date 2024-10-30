@@ -10,12 +10,22 @@ public class ProductoDTO implements Serializable{
 	private String nombre; 
 	private double precio;
 	private Integer stock;
+	private double precioEnDolar;
 	
-	public ProductoDTO(Integer id, String nombre, double precio, Integer stock) {
+
+	public ProductoDTO(Integer id, String nombre, double precio, Integer stock,double precioDolar) {
 		this.id = id;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.stock = stock;
+		this.precioEnDolar = precioDolar;
+	}
+	public double getPrecioEnDolar() {
+		return precioEnDolar;
+	}
+	
+	public void setPrecioEnDolar(double precioDolar) {
+		this.precioEnDolar = precioDolar;
 	}
 
 	public Integer getId() {
